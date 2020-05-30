@@ -1,0 +1,21 @@
+@import './vars.scss';
+
+#next-question-button {
+    @include button-theme(#28a745, white);
+    font-size: 1rem !important;
+}
+
+.you-score {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+#create-feedback, #feedback-form {
+    padding: 1rem;
+}
+
+#send-feedback-form, #send-feedback {
+    @include button-theme(#6610f2, white);
+    font-size: 1rem !important;
+    margin-left: 1rem;
+}

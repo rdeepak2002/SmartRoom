@@ -1,0 +1,303 @@
+@import "./vars.scss";
+
+.close-icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 32px;
+    height: 32px; 
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.menu {
+    background-color: $accent-color;
+    color: $secondary-color;
+    width: 15%;
+    height: 100%;
+    font-weight: bold;
+    font-size: 1.25rem;
+    font-family: 'Open Sans';
+    * { cursor: pointer; }
+    .title {
+        padding-left: .2rem;
+        padding-top: .75rem;
+    }
+    .logo {
+        width: 2.25rem;
+        height: 2.25rem;
+        margin-right: .3rem;
+    }
+    .menu-content {
+        margin-top: 1.5rem;
+    }
+    .menu-section {
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        .section-title {
+            color: gray;
+            font-size: .9rem;
+            margin-bottom: .2rem;
+            margin-left: 0.5rem;
+        }
+        table, table * {
+            //border: 1px solid white;
+        }
+        table {
+            width: 100%;
+            td {
+                font-size: 0.8rem;
+                padding: 0.5rem;
+                padding-left: .75rem;
+            }
+            td:nth-child(1) {
+                padding-left: 1rem;
+                max-width: 1rem;
+            }
+            .material-icons {
+                text-align: center;
+                vertical-align: middle;
+                font-size: 1.1rem;
+                padding: 0;
+            }
+            tr {
+                background: $accent-color;
+                transition: 400ms all;
+                &:hover {
+                    background: darken($accent-color, 5%);
+                }
+                &:first-child {
+                    padding: 0;
+                }
+            }
+        }
+    }
+    
+}
+
+.content {
+    background: $bg;
+    width: 85%;
+    height: 100%;
+    font-family: $font;
+    overflow-y: auto;
+}
+
+.content h1 {
+    font-size: 1.5rem;
+    color: $primary-color;
+    padding: 1rem;
+    margin: 0;
+    width: 100%;
+    background: white;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 1em;
+    font-family: $font;
+    div {
+        border-radius: 10px;
+        padding: 0.5em;
+        transition: 300ms all;
+        &:hover {
+            background-color: $accent-color;
+            color: white;
+            img {
+                width: 7vw;
+            }
+        }
+    }
+}
+#dash-info {
+    @extend .cards;
+    div {
+        width: card-width(1vw, 3);
+        background-color: white;
+        .number {
+            font-size: 2em;
+        }
+    }
+}
+
+#actions {
+    @extend .cards;
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: card-width(1vw, 3);
+        background-color: white;
+        span {
+            font-size: 1.6em;
+            font-weight: bold;
+            padding: .25em;
+        }
+        img {
+            margin-top: 2em;
+            margin-bottom: 2em;
+            width: 10vw;
+            transition: 300ms all;
+        }
+    }
+}
+
+#smart-info {
+    @extend .cards;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: stretch;
+    div {
+        background: white;
+        width: 83vw;
+        font-size: 1.2rem;
+        border-radius: 0;
+        border-bottom: 1px solid lightgray;
+    }
+}
+#constructive {
+    background: rgb(207, 255, 207) !important;
+    border-bottom: none !important;
+}
+#destructive {
+    margin-top: 1vw;
+    background: rgb(255, 229, 207) !important;
+    border-bottom: none !important;
+}
+#constructive, #destructive {
+    border-radius: 10px 10px 0 0;
+    font-size: 1.5rem !important;
+    &:hover {
+        background: inherit;
+        color: black !important;
+    }
+}
+
+#scores-info {
+    @extend #smart-info;
+    .quiz-date {
+        margin-top: 1vw;
+        background: rgb(207, 255, 207);
+        width: 83vw / 2;
+        border-radius: 10px 10px 0 0;
+        &:hover {
+            background: inherit;
+            background: rgb(207, 255, 207) !important;
+            color: black !important;
+        }
+    }
+    .quiz-score {
+        display: flex;
+        align-items: center;
+        * { 
+            border: none;
+            background: transparent; 
+            flex: 1;
+            //transition: 300ms all;
+            &:hover {
+                background: transparent !important;
+                //color: white;
+            }
+        }
+        .name { font-size: 1.2rem !important; text-align: left; }
+        .score { font-size: 1.2rem !important; text-align: center; }
+    }
+}
+
+#students-info {
+    @extend #smart-info;
+    .students-title {
+        border-radius: 10px 10px 0 0;
+        font-size: 1,5rem !important;
+        background: #adf4ff;
+        &:hover {
+            background: inherit;
+            color: black !important;
+        }
+    }
+}
+
+#create-question {
+    padding: 1rem;
+    * {
+        font-size: 1rem;
+        height: auto;
+    }
+    .mc label {
+        width: 7.5rem;
+    }
+}
+
+#add-question, #send-quiz {
+    @include button-theme(#007bff, white);
+    font-size: 1rem !important;
+}
+#send-quiz {
+    margin-left: 1vw;
+}
+
+.correct {
+    color: green;
+    font-weight: bold;
+}
+.wrong {
+    color: red;
+}
+
+#display-questions {
+    h1 {
+        margin-left: 1vw;
+        margin-bottom: 0;
+        width: calc(85vw - 2rem);
+    }
+    #preview-container {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: stretch;
+        .preview-group {
+            position: relative;
+            background-color: white;
+            margin-bottom: 1vw;
+            margin-left: 1vw;
+            width: card-width(1vw, 3);
+            padding: 0.5rem;
+            transition: 200ms all;
+            font-size: 1.25rem;
+            .preview-question {
+                font-size: 1.5rem;
+            }
+            .edit-icon {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                width: 20px;
+                height: 20px;
+                background-image: url('/img/black-edit.png');
+                background-size: cover;
+                transition: 200ms all;
+            }
+            &:hover {
+                background-color: $accent-color;
+                color: white;
+                .edit-icon {
+                    background-image: url('/img/white-edit.png');
+                }
+            }
+        }
+    }
+}
+
+.whiteboard {
+    width: 85vw;
+    height: 40vw;
+}

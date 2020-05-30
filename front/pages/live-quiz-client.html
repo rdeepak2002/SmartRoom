@@ -1,0 +1,77 @@
+<!-- <div id="quiz-client" class="dashboard"> --->
+    <img src="/img/close.png" class="close-icon"/>
+    <div class="menu">
+        <div class="title"><img class="logo" src="/favicon/favicon-128.png" />SmartRoom</div>
+        <div class="menu-content">
+            <div class="menu-section">
+                <div class="section-title">Create</div>
+                <table>
+                    <tr class="menu-dash">
+                        <td><span class="material-icons">dashboard</span></td>
+                        <td>Dashboard</td>
+                    </tr>
+                    <tr class="menu-whiteboard">
+                        <td><span class="material-icons">brush</span></td>
+                        <td>Whiteboard</td>
+                    </tr>
+                    <tr class="menu-quiz">
+                        <td><span class="material-icons">list_alt</span></td>
+                        <td>Live Quiz</td>
+                    </tr>
+                    <tr class="menu-feedback">
+                        <td><span class="material-icons">chat_bubble</span></td>
+                        <td>Smart Feedback</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="menu-section">
+                <div class="section-title">Analyze</div>
+                <table>
+                    <tr class="menu-students">
+                        <td><span class="material-icons">people</span></td>
+                        <td>Students</td>
+                    </tr>
+                    <tr class="menu-scores">
+                        <td><span class="material-icons">insert_chart_outlined</span></td>
+                        <td>Quiz Scores</td>
+                    </tr>
+                    <tr class="menu-feedback-analysis">
+                        <td><span class="material-icons">chat_bubble</span></td>
+                        <td>Feedback</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <h1>Quiz</h1>
+        <div style="padding: 1rem;">
+            <label style="font-size: 1.25rem;">${question}</label>
+            <div id="quiz-mc" class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="quiz-mc-radios" id="answer-radio-1" value="${isCorrect1}">
+                    <label class="form-check-label" for="answer-radio-1">
+                        ${answer1}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="quiz-mc-radios" id="answer-radio-2" value="${isCorrect2}">
+                    <label class="form-check-label" for="answer-radio-2">
+                        ${answer2}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="quiz-mc-radios" id="answer-radio-3" value="${isCorrect3}">
+                    <label class="form-check-label" for="answer-radio-3">
+                        ${answer3}
+                    </label>
+                </div>
+            </div>
+            <div id="quiz-frq" class="form-group">
+                <label for="quiz-answer-input">Answer</label>
+                <input type="text" class="form-control" id="quiz-answer-input" placeholder="Answer">
+            </div>
+            <button type="submit" id="next-question-button">Next</button>
+        </div>
+    </div>
+<!-- </div> -->

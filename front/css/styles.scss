@@ -1,0 +1,442 @@
+@import "./vars.scss";
+@import "./dashboard.scss";
+@import "./student-ui.scss";
+
+* {
+  box-sizing: border-box;
+  outline:0 !important;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+}
+
+#dash-button {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  @include button-theme($primary-color, $secondary-color);
+  font-size: 1.5rem;
+  display: none;
+}
+
+#room-id {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  padding: 0.25em;
+  font-size: 1.5rem;
+  border: 1px solid $primary-color;
+  display: none;
+}
+
+#interaction-prompt {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  padding: 0.25em;
+  font-size: 1.5rem;
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+  background: black;
+  color: white;
+  opacity: 0.3;
+  animation: blinking 2s infinite;
+  display: none;
+}
+@keyframes blinking{
+  0% { opacity: 0.3 }
+  50% { opacity: 1 }
+  100% { opacity: 0.3 }
+}
+
+#app, #app-tmp {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: $bg;
+  font-family: $font;
+}
+
+#landingPage {
+  width: 100%;
+  height: 100%;
+  background-image: url("/img/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+#title {
+  font-size: 5.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+#name-container {
+  width: 100%;
+  text-align: center;
+}
+
+#imageUpload-container {
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+#imagePreview-container {
+  margin-top: 2rem;
+}
+
+#imageUpload-prompt {
+  font-size: 2rem;
+}
+
+#imagePreview {
+  width: 8rem;
+  height: 8rem;
+  margin-bottom: 1rem;
+  margin-top: -1rem;
+  border-radius: 1rem;
+}
+
+#createRoom-container {
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+
+#or-container {
+  margin-top: 10rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#joinRoom-container {
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+
+#name-header {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+#nameInput {
+  text-align: center !important;
+  caret-color: black;
+  font-size: 2.5rem;
+  margin-top: -1rem;
+}
+.pure-material-textfield-standard {
+  font-family: $font !important;
+}
+
+#joinRoomInput {
+  text-align: center !important;
+  caret-color: black;
+  font-size: 2rem;
+}
+
+#teacherBtn, #studentBtn {
+  margin-top: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  font-size: 2rem !important;
+  border-radius: 2em !important;
+  background: transparent;
+}
+#teacherBtn {
+  @include button-theme(#6610f2, white);
+}
+#studentBtn {
+  @include button-theme(#28a745, white);
+}
+.mybtn {
+  @include button-theme(#6610f2, white);
+}
+#nextBtn {
+  @include button-theme(#28a745, white);
+  padding: 1rem !important;
+  border-radius: 2em !important;
+  min-width: 15rem;
+}
+#teacherOrStudent {
+  margin-top: 4.25rem;
+  font-size: 2rem;
+}
+
+.choose_file {
+  position:relative;
+  display:inline-block;
+  border-radius:8px;
+  border:1px solid #7f7f7f;
+  width:250px;
+  padding: 4px 6px 4px 8px;
+  font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
+  color: #7f7f7f;
+  margin-top: 1em;
+  transition: 200ms all;
+  background:transparent;
+  &:hover {
+    background: #222222;
+    color: white;
+  }
+}
+
+.choose_file input[type="file"] {
+  -webkit-appearance:none;
+  position:absolute;
+  top:0; left:0;
+  opacity:0;
+}
+
+.nameTag {
+  position: absolute;
+  background-color: black;
+  color: white;
+  top: 0px;
+  left: 0px;
+}
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.button {
+  @include button-theme($primary-color, $secondary-color);
+  width: 20rem;
+  height: 6rem;
+  background: #f3f0f1;
+  position: relative;
+  background: #f3f0f1;
+  margin-bottom: 25px;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  span {
+    line-height: 100px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 3rem;
+    font-weight: semibold;
+  }
+}
+
+.pure-material-textfield-standard {
+  position: relative;
+  display: inline-block;
+  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* Input, Textarea */
+.pure-material-textfield-standard > input,
+.pure-material-textfield-standard > textarea {
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  border-top: solid 27px transparent;
+  border-bottom: solid 1px rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+  padding: 0 0 4px;
+  width: 100%;
+  height: inherit;
+  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+  background-color: transparent;
+  box-shadow: none; /* Firefox */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  caret-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+  transition: border-bottom 0.2s, background-color 0.2s;
+}
+
+/* Span */
+.pure-material-textfield-standard > input + span,
+.pure-material-textfield-standard > textarea + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  box-sizing: border-box;
+  padding: 7px 0 0;
+  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+  font-size: 75%;
+  line-height: 18px;
+  pointer-events: none;
+  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+
+/* Underline */
+.pure-material-textfield-standard > input + span::after,
+.pure-material-textfield-standard > textarea + span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+  transform-origin: bottom center;
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+
+/* Hover */
+.pure-material-textfield-standard > input:hover,
+.pure-material-textfield-standard > textarea:hover {
+  border-bottom-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+}
+
+/* Placeholder-shown */
+.pure-material-textfield-standard > input:not(:focus):placeholder-shown + span,
+.pure-material-textfield-standard > textarea:not(:focus):placeholder-shown + span {
+  font-size: inherit;
+  line-height: 56px;
+}
+
+/* Absolute Center Spinner */
+.loading {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
