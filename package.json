@@ -22,7 +22,7 @@
     "ibm-watson": "^5.5.0",
     "jquery": "^3.5.1",
     "nocache": "^2.1.0",
-    "peerjs": "^1.2.0",
+    "peerjs": "^1.4.7",
     "socket.io": "^2.3.0",
     "three": "^0.116.1"
   },
